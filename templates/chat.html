@@ -6,16 +6,6 @@
 
 {% block body %}
         <div id="chat-container">
-            <div id="search-container">
-
-            </div>
-            <div id="conversation-list">
-
-            </div>
-
-            <div id="new-message-container">
-
-            </div>
             <div id="chat-title">
                 <span>Welcome Messaging</span>
                 <img src="static/images/refresh.svg" onClick="window.location.reload();" alt="Refresh" />
@@ -34,6 +24,7 @@
                         {% if message["user_id"] != user_id %}
                             <div id="chat-messsage-list">
                                 <div class="message-row other-message">
+                                    <div class="message-sender">{{ message["username"] }}</div>
                                     <div class="message-text">{{ message["message"] }}</div>
                                     <div class="message-time">{{ message["ts"] }}</div>
                                 </div>

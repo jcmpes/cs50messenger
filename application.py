@@ -71,8 +71,10 @@ def chat():
         # Update database
         message = request.form.get("message")
         user_id = int(session["user_id"])
+        user = db.execute("SELECT username FROM users WHERE id = :id", id=user_id)
+        username = user[0]["username"]
         if message:
-            db.execute("INSERT INTO messages (message, type, ts, user_id) VALUES (:message, 'text', :ts, :user_id)", message=message, ts=dateTimeObj, user_id=user_id)
+            db.execute("INSERT INTO messages (message, type, ts, user_id, username) VALUES (:message, 'text', :ts, :user_id, :username)", message=message, ts=dateTimeObj, user_id=user_id, username=username)
 
 
         # Render template passing in messages
