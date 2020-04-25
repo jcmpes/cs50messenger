@@ -7,8 +7,10 @@
 {% block body %}
         <div id="chat-container">
             <div id="chat-title">
-                <span>Welcome Messaging</span>
-                <img src="static/images/refresh.svg" onClick="window.location.reload();" alt="Refresh" />
+                <span>CS50 Messenger</span>
+                <div id="refresh">
+                    <img src="static/images/refresh.svg" onClick="window.location.reload();" alt="Refresh" />
+                </div>
             </div>
             <div id="chat-message-list">
                 {% if messages %}
